@@ -9,13 +9,11 @@ import java.util.Objects;
 @Entity
 public class Employer extends AbstractEntity {
 
-    @NotBlank(message = "Location field required")
+    @NotBlank(message = "Required field")
     @Size(min = 3, max = 256, message = "Location must be 3 to 255 characters")
      private String location;
 
-    @NotBlank(message = "Name field required")
-    @Size(min = 3, max = 256, message = "Name must be 3 to 255 characters")
-    private String name;
+    public Employer() {}   // Constructor for Hibernate
 
     public String getLocation() {
         return location;
@@ -29,23 +27,7 @@ public class Employer extends AbstractEntity {
     public String toString() {
         return "Employer{" +
                 "location='" + location + '\'' +
-                ", name='" + name + '\'' +
+//                ", name='" + name + '\'' +
                 '}';
     }
-
-    public Employer() {}   // Constructor for Hibernate
-
-//    @Override
-//    public boolean equals(Object o) {
-//        if (this == o) return true;
-//        if (o == null || getClass() != o.getClass()) return false;
-//        if (!super.equals(o)) return false;
-//        Employer employer = (Employer) o;
-//        return Objects.equals(getLocation(), employer.getLocation()) && Objects.equals(getName(), employer.getName());
-//    }
-//
-//    @Override
-//    public int hashCode() {
-//        return Objects.hash(super.hashCode(), getLocation(), getName());
-//    }
 }
