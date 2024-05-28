@@ -29,10 +29,11 @@ public class EmployerController {
                                     Errors errors, Model model) {
 
         if (errors.hasErrors()) {
+            model.addAttribute("name", "Create Event");
             return "employers/add";
         }
 
-//        employerRepository.save(newEmployer);
+//       employerRepository.save(newEmployer);
         return "redirect:";
     }
 
