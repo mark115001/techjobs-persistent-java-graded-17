@@ -2,25 +2,19 @@ package org.launchcode.techjobs.persistent.models;
 
 
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
 
 import java.util.List;
 
 @Entity
-public class Job {
+public class Job extends AbstractEntity {
 
-    @Id
-    @GeneratedValue
-    private int id;
 
     private String name;
     private String employer;
     private String skills;
 
 
-    public Job() {
-    }
+    public Job() {}
 
     // Initialize the id and value fields.
     public Job(String anEmployer, String someSkills) {

@@ -30,11 +30,11 @@ public class SkillController {
                                          Errors errors, Model model) {
 
         if (errors.hasErrors()) {
-            model.addAttribute(new Employer());
+            model.addAttribute("name", "Create Skill");
             return "skills/add";
         }
 
-//        skillRepository.save(newSkill);
+        skillRepository.save(newSkill);
         return "redirect:";
     }
 
@@ -45,7 +45,7 @@ public class SkillController {
         if (optSkill.isPresent()) {
             Skill skill = (Skill) optSkill.get();
             model.addAttribute("skill", "skills");
-            return "employers/view";
+            return "skills/view";
         } else {
 //            skillRepository.findAllById(skillId);
             return "redirect:../";
