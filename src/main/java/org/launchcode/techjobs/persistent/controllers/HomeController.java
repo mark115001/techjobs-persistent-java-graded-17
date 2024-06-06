@@ -19,6 +19,7 @@ import java.util.Optional;
  * Created by LaunchCode
  */
 @Controller
+@RequestMapping("/")
 public class HomeController {
 
     @Autowired

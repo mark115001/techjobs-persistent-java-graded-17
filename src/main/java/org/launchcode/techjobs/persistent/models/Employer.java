@@ -18,7 +18,7 @@ public class Employer extends AbstractEntity {
      private String location;
 
     @OneToMany
-    @JoinColumn(name="id")
+    @JoinColumn(name="employer_id")
     private List<Job> jobs = new ArrayList<>();
 
     public Employer() {}   // Constructor for Hibernate

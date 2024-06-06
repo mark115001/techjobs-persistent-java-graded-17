@@ -24,11 +24,20 @@
         <a th:href="@{'/employers/add'}">Add Employers</a>
     </div>
 
+<!--    <div class="form-group">-->
+<!--        <label th:for="employers">Employer</label>-->
+<!--        <th:block th:each="employers : ${employers}">-->
+<!--            <input type="checkbox" name="employerId" th:value="${employers.id}">-->
+<!--            <label th:text="${employers.name}"></label>-->
+<!--        </th:block>-->
+<!--        <a th:href="@{'/employers/add'}">Add Employers</a>-->
+<!--    </div>-->
+
     <div class="form-group">
         <label th:for="skills">Skills</label>
-        <th:block th:each="skill : ${skills}">
-            <input type="checkbox" name="skills" th:value="${skill.id}">
-            <label th:text="${skill.name}"></label>
+        <th:block th:each="skills : ${skills}">
+            <input type="checkbox" name="skills" th:value="${skills.id}">
+            <label th:text="${skills.name}"></label>
         </th:block>
         <a th:href="@{'/skills/add'}">Add Skills</a>
     </div>
