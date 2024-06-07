@@ -47,7 +47,7 @@ public class EmployerController {
 //            model.addAttribute(new Employer());
             return "employers/view";
         } else {
-//            employerRepository.findById(employerId);
+            employerRepository.findById(employerId);
             return "redirect:../";
         }
     }
