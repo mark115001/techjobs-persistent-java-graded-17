@@ -35,7 +35,7 @@ public class SkillController {
         }
 
         skillRepository.save(newSkill);
-        return "redirect:";
+        return "redirect:../";
     }
 
     @GetMapping("view/{skillId}")
@@ -48,14 +48,14 @@ public class SkillController {
             return "skills/view";
         } else {
             skillRepository.findById(skillId);
-            return "redirect:../";
+            return "redirect:../../";
         }
     }
     @GetMapping("/")
-    @RequestMapping("/")
+//    @RequestMapping("/")
     public String index (Model model){
         model.addAttribute("skill", "skills");
-        model.addAttribute("employers", skillRepository.findAll());
+        model.addAttribute("skills", skillRepository.findAll());
         return "index";
     }
 
