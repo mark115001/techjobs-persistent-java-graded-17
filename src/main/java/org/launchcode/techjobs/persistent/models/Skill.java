@@ -11,6 +11,10 @@ public class Skill extends AbstractEntity {
 
     public Skill() {}  //  Constructor for Hibernate
 
+    public Skill(String description) {
+        this.description = description;
+    }
+
     public String getDescription() {
         return description;
     }

@@ -15,5 +15,7 @@ DROP TABLE job;
 
 --Part 4
 
-SELECT * FROM skill *(LEFT|INNER)? JOIN job_skills ON (skill.id = job_skills.skills_id|job_skills.skills_id = skill.id)
-(*WHERE job_skills.jobs_id IS NOT NULL)? *ORDER BY name ASC, (Pattern.CASE_INSENSITIVE | Pattern.MULTILINE);
+  SELECT *   FROM   skill *(LEFT|INNER)?   JOIN   job_skills   ON   (skill.id   =   job_skills.skills_id|job_skills.skills_id   =   skill.id)
+                  (*WHERE   job_skills.jobs_id   IS   NOT   NULL)?
+                   *ORDER   BY   name   ASC;  , Pattern.CASE_INSENSITIVE | Pattern.MULTILINE);
+
