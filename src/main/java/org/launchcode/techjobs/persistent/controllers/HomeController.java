@@ -66,7 +66,10 @@ public class HomeController {
 
         Optional optJob = jobRepository.findById(jobId);
         if (optJob.isPresent()) {
-            model.addAttribute("Job", jobRepository.findById(jobId));
+            Job job = (Job) optJob.get();
+            model.addAttribute("job", job);
+            model.addAttribute("skill", skillRepository.findAll());
+//            model.addAttribute("skill", skillRepository.findById(jobId));
             return "view";
         } else {
             return "redirect:";

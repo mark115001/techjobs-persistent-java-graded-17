@@ -31,11 +31,11 @@ public class Employer extends AbstractEntity {
         this.location = location;
     }
 
-    @Override
-    public String toString() {
-        return "Employer{" +
-                "location='" + location + '\'' +
+//    @Override
+//    public String toString() {
+//        return "Employer{" +
+//                "location='" + location + '\'' +
 //                ", name='" + name + '\'' +
-                '}';
-    }
+//                '}';
+//    }
 }

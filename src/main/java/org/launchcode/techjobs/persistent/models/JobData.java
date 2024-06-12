@@ -29,9 +29,9 @@ public class JobData {
             return (ArrayList<Job>) allJobs;
         }
 
-        if (column.equals("all")){
+        if (column.toLowerCase().equals("all")){
             results = findByValue(value, allJobs);
-            return results;
+//            return results;
         }
         for (Job job : allJobs) {
 
@@ -45,6 +45,20 @@ public class JobData {
         return results;
     }
 
+//    public static String getFieldValue(Job job, String fieldName){
+//        String theValue;
+//        if (fieldName.equals("name")){
+//            theValue = job.getName();
+//        } else if (fieldName.equals("employer")){
+//            theValue = job.getEmployer().toString();
+//        } else {
+//            theValue = job.getSkills().toString();
+//        }
+//
+//        return theValue;
+//    }
+
+
     public static String getFieldValue(Job job, String fieldName){
         String theValue;
         if (fieldName.equals("name")){
@@ -57,6 +71,23 @@ public class JobData {
 
         return theValue;
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     /**
      * Search all Job fields for the given term.
