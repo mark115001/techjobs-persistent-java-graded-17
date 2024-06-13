@@ -2,16 +2,20 @@ package org.launchcode.techjobs.persistent.models;
 
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Job extends AbstractEntity {
+
 
     @ManyToOne
     private Employer employer;
 
     private String skills;
-
 
     public Job() {}
 

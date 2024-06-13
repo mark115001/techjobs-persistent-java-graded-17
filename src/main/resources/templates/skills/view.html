@@ -14,8 +14,10 @@
     <p> Jobs:
         <ul>
             <li th:each="job : ${jobs}">
-<!--                <a th:href="@{'/view/' + ${job.id}}" th:text="${job.name}"></a>-->
-                <a th:href="@{'/view/' + ${skill.id}}" th:text="${skill.name}"></a>
+<!--            <li th:each="skill : ${skills}">\li>-->
+
+                <a th:href="@{'skills/view/' + ${job.id}}" th:text="${job.name}"></a>
+<!--                <a th:href="@{'skills/view/' + ${skill.id}}" th:text="${skill.name}"></a>-->
             </li>
         </ul>
     </p>

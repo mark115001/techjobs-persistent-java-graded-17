@@ -52,7 +52,8 @@ public class SkillController {
             model.addAttribute("Employer", "View Job");
 //            model.addAttribute("employer", employer);
 //            model.addAttribute("jobs", jobRepository.findAll());
-            model.addAttribute("jobs", jobRepository.findById(skillId));
+//            model.addAttribute("jobs", jobRepository.findById(skillId));
+            model.addAttribute("jobs", jobRepository.findAll());
 
             return "skills/view";
         } else {
