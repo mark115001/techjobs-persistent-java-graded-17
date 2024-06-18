@@ -50,11 +50,12 @@ public class HomeController {
         return "add";
     }
 
+    // --------All TestTask4 Tests Work -- Add Jobs does not work
     @PostMapping("add")
     public String processAddJobForm(@ModelAttribute @Valid Job newJob,
-                                       Errors errors, Model model) {
-//                                    @RequestParam int employerId,
-//                                    @RequestParam(required = false) List<Integer> skills) {
+                                       Errors errors, Model model,
+                                    @RequestParam int employerId,
+                                    @RequestParam(required = false) List<Integer> skills) {
 
         if (errors.hasErrors()) {
 	    model.addAttribute("title", "Add Job");
@@ -62,20 +63,48 @@ public class HomeController {
 
             return "add";
         }
-//        Optional optEmployer = employerRepository.findById(employerId);
-//        if (optEmployer.isPresent()) {
-//            Employer employer = (Employer) optEmployer.get();
-//            newJob.setEmployer(employer);
-//        }
+        Optional optEmployer = employerRepository.findById(employerId);
+        if (optEmployer.isPresent()) {
+            Employer employer = (Employer) optEmployer.get();
+            newJob.setEmployer(employer);
+        }
 
-//        model.addAttribute("skills", skillRepository.findAllById(skills));
-//        List<Skill> skillObjs = (List<Skill>) skillRepository.findAllById(skills);
-//        newJob.setSkills(skillObjs);
-//        model.addAttribute("employers", employerRepository.findAllById(skills));
-//        model.addAttribute("job", jobRepository.findAllById(skills));
+        model.addAttribute("skills", skillRepository.findAllById(skills));
+        List<Skill> skillObjs = (List<Skill>) skillRepository.findAllById(skills);
+        newJob.setSkills(skillObjs);
+        model.addAttribute("employers", employerRepository.findAllById(skills));
+        model.addAttribute("job", jobRepository.findAllById(skills));
         jobRepository.save(newJob);
         return "redirect:";
     }
+
+    //    ------One TestTaskFour Test Does not work....Add Job does work
+//    @PostMapping("add")
+//    public String processAddJobForm(@ModelAttribute @Valid Job newJob,
+//                                       Errors errors, Model model) {
+////                                    @RequestParam int employerId,
+////                                    @RequestParam(required = false) List<Integer> skills) {
+//
+//        if (errors.hasErrors()) {
+//	    model.addAttribute("title", "Add Job");
+//
+//
+//            return "add";
+//        }
+////        Optional optEmployer = employerRepository.findById(employerId);
+////        if (optEmployer.isPresent()) {
+////            Employer employer = (Employer) optEmployer.get();
+////            newJob.setEmployer(employer);
+////        }
+//
+////        model.addAttribute("skills", skillRepository.findAllById(skills));
+////        List<Skill> skillObjs = (List<Skill>) skillRepository.findAllById(skills);
+////        newJob.setSkills(skillObjs);
+////        model.addAttribute("employers", employerRepository.findAllById(skills));
+////        model.addAttribute("job", jobRepository.findAllById(skills));
+//        jobRepository.save(newJob);
+//        return "redirect:";
+//    }
 
     @GetMapping("view/{jobId}")
     public String displayViewJob(Model model, @PathVariable int jobId) {
