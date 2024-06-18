@@ -34,7 +34,7 @@ public class SkillController {
                                          Errors errors, Model model) {
 
         if (errors.hasErrors()) {
-            model.addAttribute("name", "Create Skill");
+//            model.addAttribute("name", "Create Skill");
             return "skills/add";
         }
 
@@ -49,22 +49,23 @@ public class SkillController {
         if (optSkill.isPresent()) {
             Skill skill = (Skill) optSkill.get();
             model.addAttribute("skill", skill);
-            model.addAttribute("Employer", "View Job");
+//            model.addAttribute("Employer", "View Job");
 //            model.addAttribute("employer", employer);
 //            model.addAttribute("jobs", jobRepository.findAll());
 //            model.addAttribute("jobs", jobRepository.findById(skillId));
-            model.addAttribute("jobs", jobRepository.findAll());
+//            model.addAttribute("jobs", jobRepository.findAll());
+//            model.addAttribute("skills", skillRepository.findAll());
 
             return "skills/view";
         } else {
-            skillRepository.findById(skillId);
+//            skillRepository.findById(skillId);
             return "redirect:../../";
         }
     }
     @GetMapping("/")
 //    @RequestMapping("/")
     public String index (Model model){
-        model.addAttribute("skill", "skills");
+//        model.addAttribute("skill", "skills");
         model.addAttribute("skills", skillRepository.findAll());
         return "index";
     }
