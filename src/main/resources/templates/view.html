@@ -11,12 +11,13 @@
     <p th:text="${'ID: ' + job.id}"></p>
     <p th:text="${'Name: ' + job.name}"></p>
     <p>
-        Employer: <a th:href="@{'/employers/view/' + ${employerId}}" th:text="${job.employer.name}"></a>
+<!--        Employer: <a th:href="@{'/employers/view/' + ${employerId}}" th:text="${job.employer.name}"></a>-->
+        Employer: <a th:href="@{'/employers/view/' + ${job.employer.id}}" th:text="${job.employer.name}"></a>
     </p>
     <p> Skills:
         <ul>
 <!--            <li th:each="skill : ${job.skills}">-->
-            <li th:each="skill : ${skills}">
+            <li th:each="skill : ${job.skills}">
                 <a th:href="@{'/skills/view/' + ${skill.id}}" th:text="${skill.name}"></a>
 <!--                <a th:href="@{'/skills/view/' + ${job.skills}}" th:text="${job.name}"></a>-->
             </li>

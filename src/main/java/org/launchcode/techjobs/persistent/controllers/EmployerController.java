@@ -2,6 +2,7 @@ package org.launchcode.techjobs.persistent.controllers;
 
 import jakarta.validation.Valid;
 import org.launchcode.techjobs.persistent.models.Employer;
+import org.launchcode.techjobs.persistent.models.Job;
 import org.launchcode.techjobs.persistent.models.data.EmployerRepository;
 import org.launchcode.techjobs.persistent.models.data.JobRepository;
 import org.launchcode.techjobs.persistent.models.data.SkillRepository;
@@ -52,8 +53,12 @@ public class EmployerController {
             Employer employer = (Employer) optEmployer.get();
             model.addAttribute("Employer", "View Job");
             model.addAttribute("employer", employer);
-            model.addAttribute("jobs", jobRepository.findAll());
-            model.addAttribute("skills", skillRepository.findAll());
+            Optional optJob = jobRepository.findById(employerId);
+            if (!optJob.isEmpty()) {
+                Job jobs = (Job) optJob.get();
+                model.addAttribute("jobs", jobs);
+            }
+//            model.addAttribute("skills", skillRepository.findAll());
 //            model.addAttribute(new Employer());
             return "employers/view";
         } else {
